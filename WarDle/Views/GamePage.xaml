@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewmodel="clr-namespace:WarDle.ViewModels"
+             xmlns:models="clr-namespace:WarDle.Models"
+             xmlns:converters="clr-namespace:WarDle.Converters"
+             x:DataType="viewmodel:GameViewModel"
+             x:Class="WarDle.GamePage"
+             Title="Game"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="#F0F0F0">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <converters:CharToStringConverter x:Key="CharToStringConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+
+    <Grid  RowDefinitions="Auto, Auto, Auto" ColumnDefinitions="*">
+        <!-- Title -->
+        <Label Text="WarDle"
+               FontSize="36"
+               HorizontalOptions="Center"
+               VerticalOptions="Center"
+               FontAttributes="Bold"
+               TextColor="#4CAF50"
+               Grid.Row="0" />
+
+        <!-- Word Grid -->
+        <Grid x:Name="EntryGrid" Grid.Row="1" Padding="10" HorizontalOptions="Center"
+              RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="Auto,Auto,Auto,Auto,Auto"
+              RowSpacing="10" ColumnSpacing="10" >
+
+            <!-- Row 1 -->
+            <Entry Grid.Row="0" Grid.Column="0" Style="{StaticResource GridEntryStyle}"
+                   Text="{Binding Rows[0].Letters[0], Mode=TwoWay, Converter={StaticResource CharToStringConverter}}"
+                   TextChanged="EntryTextChanged" IsReadOnly="{Binding Rows[0].EntriesReadOnly[0]}"
+                   BackgroundColor="{Binding Rows[0].EntryBackgroundColors[0]}" />
+            <Entry Grid.Row="0" Grid.Column="1" Style="{StaticResource GridEntryStyle}"
+                   Text="{Binding Rows[0].Letters[1], Mode=TwoWay, Converter={StaticResource CharToStringConverter}}"
+                   TextChanged="EntryTextChanged" IsReadOnly="{Binding Rows[0].EntriesReadOnly[1]}"
+                   BackgroundColor="{Binding Rows[0].EntryBackgroundColors[1]}" />
+            <Entry Grid.Row="0" Grid.Column="2" Style="{StaticResource GridEntryStyle}"
+                   Text="{Binding Rows[0].Letters[2], Mode=TwoWay, Converter={StaticResource CharToStringConverter}}"
+                   TextChanged="EntryTextChanged" IsReadOnly="{Binding Rows[0].EntriesReadOnly[2]}"
+                   BackgroundColor="{Binding Rows[0].EntryBackgroundColors[2]}" />
+            <Entry Grid.Row="0" Grid.Column="3" Style="{StaticResource GridEntryStyle}"
+                   Text="{Binding Rows[0].Letters[3], Mode=TwoWay, Converter={StaticResource CharToStringConverter}}"
+                   TextChanged="EntryTextChanged" IsReadOnly="{Binding Rows[0].EntriesReadOnly[3]}"
+                   BackgroundColor="{Binding Rows[0].EntryBackgroundColors[3]}" />
+            <Entry Grid.Row="0" Grid.Column="4" Style="{StaticResource GridEntryStyle}"
+                   Text="{Binding Rows[0].Letters[4], Mode=TwoWay, Converter={StaticResource CharToStringConverter}}"
+                   TextChanged="EntryTextChanged" IsReadOnly="{Binding Rows[0].EntriesReadOnly[4]}"
+                   BackgroundColor="{Binding Rows[0].EntryBackgroundColors[4]}" />
+
+            <!-- Row 2 -->
+            <Entry Grid.Row="1" Grid.Column="0" Style="{StaticResource GridEntryStyle}"
+                   Text="{Binding Rows[1].Letters[0], Mode=TwoWay, Converter={StaticResource CharToStringConverter}}"
+                   TextChanged="EntryTextChanged" IsReadOnly="{Binding Rows[1].EntriesReadOnly[0]}"
+                   BackgroundColor="{Binding Rows[1].EntryBackgroundColors[0]}" />
+            <Entry Grid.Row="1" Grid.Column="1" Style="{StaticResource GridEntryStyle}"
+                   Text="{Binding Rows[1].Letters[1], Mode=TwoWay, Converter={StaticResource CharToStringConverter}}"
+                   TextChanged="EntryTextChanged" IsReadOnly="{Binding Rows[1].EntriesReadOnly[1]}"
+                   BackgroundColor="{Binding Rows[1].EntryBackgroundColors[1]}" />
+            <Entry Grid.Row="1" Grid.Column="2" Style="{StaticResource GridEntryStyle}"
+                   Text="{Binding Rows[1].Letters[2], Mode=TwoWay, Converter={StaticResource CharToStringConverter}}"
+                   TextChanged="EntryTextChanged" IsReadOnly="{Binding Rows[1].EntriesReadOnly[2]}"
+                   BackgroundColor="{Binding Rows[1].EntryBackgroundColors[2]}" />
+            <Entry Grid.Row="1" Grid.Column="3" Style="{StaticResource GridEntryStyle}"
+                   Text="{Binding Rows[1].Letters[3], Mode=TwoWay, Converter={StaticResource CharToStringConverter}}"
+                   TextChanged="EntryTextChanged" IsReadOnly="{Binding Rows[1].EntriesReadOnly[3]}"
+                   BackgroundColor="{Binding Rows[1].EntryBackgroundColors[3]}" />
+            <Entry Grid.Row="1" Grid.Column="4" Style="{StaticResource GridEntryStyle}"
+                   Text="{Binding Rows[1].Letters[4], Mode=TwoWay, Converter={StaticResource CharToStringConverter}}"
+                   TextChanged="EntryTextChanged" IsReadOnly="{Binding Rows[1].EntriesReadOnly[4]}"
+                   BackgroundColor="{Binding Rows[1].EntryBackgroundColors[4]}" />
+
+            <!-- Row 3 -->
+            <Entry Grid.Row="2" Grid.Column="0" Style="{StaticResource GridEntryStyle}"
+                   Text="{Binding Rows[2].Letters[0], Mode=TwoWay, Converter={StaticResource CharToStringConverter}}"
+                   TextChanged="EntryTextChanged" IsReadOnly="{Binding Rows[2].EntriesReadOnly[0]}"
+                   BackgroundColor="{Binding Rows[2].EntryBackgroundColors[0]}" />
+            <Entry Grid.Row="2" Grid.Column="1" Style="{StaticResource GridEntryStyle}"
+                   Text="{Binding Rows[2].Letters[1], Mode=TwoWay, Converter={StaticResource CharToStringConverter}}"
+                   TextChanged="EntryTextChanged" IsReadOnly="{Binding Rows[2].EntriesReadOnly[1]}"
+                   BackgroundColor="{Binding Rows[2].EntryBackgroundColors[1]}" />
+            <Entry Grid.Row="2" Grid.Column="2" Style="{StaticResource GridEntryStyle}"
+                   Text="{Binding Rows[2].Letters[2], Mode=TwoWay, Converter={StaticResource CharToStringConverter}}"
+                   TextChanged="EntryTextChanged" IsReadOnly="{Binding Rows[2].EntriesReadOnly[2]}"
+                   BackgroundColor="{Binding Rows[2].EntryBackgroundColors[2]}" />
+            <Entry Grid.Row="2" Grid.Column="3" Style="{StaticResource GridEntryStyle}"
+                   Text="{Binding Rows[2].Letters[3], Mode=TwoWay, Converter={StaticResource CharToStringConverter}}"
+                   TextChanged="EntryTextChanged" IsReadOnly="{Binding Rows[2].EntriesReadOnly[3]}"
+                   BackgroundColor="{Binding Rows[2].EntryBackgroundColors[3]}" />
+            <Entry Grid.Row="2" Grid.Column="4" Style="{StaticResource GridEntryStyle}"
+                   Text="{Binding Rows[2].Letters[4], Mode=TwoWay, Converter={StaticResource CharToStringConverter}}"
+                   TextChanged="EntryTextChanged" IsReadOnly="{Binding Rows[2].EntriesReadOnly[4]}"
+                   BackgroundColor="{Binding Rows[2].EntryBackgroundColors[4]}" />
+
+            <!-- Row 4 -->
+            <Entry Grid.Row="3" Grid.Column="0" Style="{StaticResource GridEntryStyle}"
+                   Text="{Binding Rows[3].Letters[0], Mode=TwoWay, Converter={StaticResource CharToStringConverter}}"
+                   TextChanged="EntryTextChanged" IsReadOnly="{Binding Rows[3].EntriesReadOnly[0]}"
+                   BackgroundColor="{Binding Rows[3].EntryBackgroundColors[0]}" />
+            <Entry Grid.Row="3" Grid.Column="1" Style="{StaticResource GridEntryStyle}"
+                   Text="{Binding Rows[3].Letters[1], Mode=TwoWay, Converter={StaticResource CharToStringConverter}}"
+                   TextChanged="EntryTextChanged" IsReadOnly="{Binding Rows[3].EntriesReadOnly[1]}"
+                   BackgroundColor="{Binding Rows[3].EntryBackgroundColors[1]}" />
+            <Entry Grid.Row="3" Grid.Column="2" Style="{StaticResource GridEntryStyle}"
+                   Text="{Binding Rows[3].Letters[2], Mode=TwoWay, Converter={StaticResource CharToStringConverter}}"
+                   TextChanged="EntryTextChanged" IsReadOnly="{Binding Rows[3].EntriesReadOnly[2]}"
+                   BackgroundColor="{Binding Rows[3].EntryBackgroundColors[2]}" />
+            <Entry Grid.Row="3" Grid.Column="3" Style="{StaticResource GridEntryStyle}"
+                   Text="{Binding Rows[3].Letters[3], Mode=TwoWay, Converter={StaticResource CharToStringConverter}}"
+                   TextChanged="EntryTextChanged" IsReadOnly="{Binding Rows[3].EntriesReadOnly[3]}"
+                   BackgroundColor="{Binding Rows[3].EntryBackgroundColors[3]}" />
+            <Entry Grid.Row="3" Grid.Column="4" Style="{StaticResource GridEntryStyle}"
+                   Text="{Binding Rows[3].Letters[4], Mode=TwoWay, Converter={StaticResource CharToStringConverter}}"
+                   TextChanged="EntryTextChanged" IsReadOnly="{Binding Rows[3].EntriesReadOnly[4]}"
+                   BackgroundColor="{Binding Rows[3].EntryBackgroundColors[4]}" />
+
+            <!-- Row 5 -->
+            <Entry Grid.Row="4" Grid.Column="0" Style="{StaticResource GridEntryStyle}"
+                   Text="{Binding Rows[4].Letters[0], Mode=TwoWay, Converter={StaticResource CharToStringConverter}}"
+                   TextChanged="EntryTextChanged" IsReadOnly="{Binding Rows[4].EntriesReadOnly[0]}"
+                   BackgroundColor="{Binding Rows[4].EntryBackgroundColors[0]}" />
+            <Entry Grid.Row="4" Grid.Column="1" Style="{StaticResource GridEntryStyle}"
+                   Text="{Binding Rows[4].Letters[1], Mode=TwoWay, Converter={StaticResource CharToStringConverter}}"
+                   TextChanged="EntryTextChanged" IsReadOnly="{Binding Rows[4].EntriesReadOnly[1]}"
+                   BackgroundColor="{Binding Rows[4].EntryBackgroundColors[1]}" />
+            <Entry Grid.Row="4" Grid.Column="2" Style="{StaticResource GridEntryStyle}"
+                   Text="{Binding Rows[4].Letters[2], Mode=TwoWay, Converter={StaticResource CharToStringConverter}}"
+                   TextChanged="EntryTextChanged" IsReadOnly="{Binding Rows[4].EntriesReadOnly[2]}"
+                   BackgroundColor="{Binding Rows[4].EntryBackgroundColors[2]}" />
+            <Entry Grid.Row="4" Grid.Column="3" Style="{StaticResource GridEntryStyle}"
+                   Text="{Binding Rows[4].Letters[3], Mode=TwoWay, Converter={StaticResource CharToStringConverter}}"
+                   TextChanged="EntryTextChanged" IsReadOnly="{Binding Rows[4].EntriesReadOnly[3]}"
+                   BackgroundColor="{Binding Rows[4].EntryBackgroundColors[3]}" />
+            <Entry Grid.Row="4" Grid.Column="4" Style="{StaticResource GridEntryStyle}"
+                   Text="{Binding Rows[4].Letters[4], Mode=TwoWay, Converter={StaticResource CharToStringConverter}}"
+                   TextChanged="EntryTextChanged" IsReadOnly="{Binding Rows[4].EntriesReadOnly[4]}"
+                   BackgroundColor="{Binding Rows[4].EntryBackgroundColors[4]}" />
+
+            <!-- Row 6 -->
+            <Entry Grid.Row="5" Grid.Column="0" Style="{StaticResource GridEntryStyle}"
+                   Text="{Binding Rows[5].Letters[0], Mode=TwoWay, Converter={StaticResource CharToStringConverter}}"
+                   TextChanged="EntryTextChanged" IsReadOnly="{Binding Rows[5].EntriesReadOnly[0]}"
+                   BackgroundColor="{Binding Rows[5].EntryBackgroundColors[0]}" />
+            <Entry Grid.Row="5" Grid.Column="1" Style="{StaticResource GridEntryStyle}"
+                   Text="{Binding Rows[5].Letters[1], Mode=TwoWay, Converter={StaticResource CharToStringConverter}}"
+                   TextChanged="EntryTextChanged" IsReadOnly="{Binding Rows[5].EntriesReadOnly[1]}"
+                   BackgroundColor="{Binding Rows[5].EntryBackgroundColors[1]}" />
+            <Entry Grid.Row="5" Grid.Column="2" Style="{StaticResource GridEntryStyle}"
+                   Text="{Binding Rows[5].Letters[2], Mode=TwoWay, Converter={StaticResource CharToStringConverter}}"
+                   TextChanged="EntryTextChanged" IsReadOnly="{Binding Rows[5].EntriesReadOnly[2]}"
+                   BackgroundColor="{Binding Rows[5].EntryBackgroundColors[2]}" />
+            <Entry Grid.Row="5" Grid.Column="3" Style="{StaticResource GridEntryStyle}"
+                   Text="{Binding Rows[5].Letters[3], Mode=TwoWay, Converter={StaticResource CharToStringConverter}}"
+                   TextChanged="EntryTextChanged" IsReadOnly="{Binding Rows[5].EntriesReadOnly[3]}"
+                   BackgroundColor="{Binding Rows[5].EntryBackgroundColors[3]}" />
+            <Entry Grid.Row="5" Grid.Column="4" Style="{StaticResource GridEntryStyle}"
+                   Text="{Binding Rows[5].Letters[4], Mode=TwoWay, Converter={StaticResource CharToStringConverter}}"
+                   TextChanged="EntryTextChanged" IsReadOnly="{Binding Rows[5].EntriesReadOnly[4]}"
+                   BackgroundColor="{Binding Rows[5].EntryBackgroundColors[4]}" />
+
+        </Grid>
+
+        <!-- Submit Button -->
+        <Button Text="Submit"
+                FontSize="18"
+                BackgroundColor="#4CAF50"
+                TextColor="White"
+                CornerRadius="10"
+                HeightRequest="50"
+                WidthRequest="200"
+                VerticalOptions="End"
+                HorizontalOptions="Center"
+                Command="{Binding SubmitCommand}"
+                Grid.Row="2" />
+    </Grid>
+</ContentPage>
