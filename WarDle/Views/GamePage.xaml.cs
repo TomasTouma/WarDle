@@ -1,6 +1,8 @@
 namespace WarDle;
 using WarDle.ViewModels;
 using Microsoft.Maui.Controls;
+using System.Threading.Tasks;
+using System;
 
 public partial class GamePage : ContentPage
 {
@@ -20,6 +22,15 @@ public partial class GamePage : ContentPage
         await gameViewModel.InitializeWordsAsync();
     }
 
+    public async Task LoadGameStateAsync()
+    {
+        await gameViewModel.LoadGameStateAsync();
+    }
+
+    public async Task SaveGameStateAsync()
+    {
+        await gameViewModel.SaveGameStateAsync();
+    }
     private void FocusEntry(int rowIndex, int colIndex)
     {
         // Find the entry by index and set focus
@@ -51,5 +62,5 @@ public partial class GamePage : ContentPage
         }
     }
 
-
+   
 }

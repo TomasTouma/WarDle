@@ -17,4 +17,14 @@
         Route="GamePage" 
         ContentTemplate="{DataTemplate local:GamePage}" />
 
+    <ShellContent
+        Title="Results"
+        Route="ResultsPage"
+        ContentTemplate="{DataTemplate local:ResultsPage}" />
+
+    <ShellContent
+        Title="Settings"
+        Route="SettingsPage"
+        ContentTemplate="{DataTemplate local:SettingsPage}" />
+
 </Shell>

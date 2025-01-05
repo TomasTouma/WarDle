@@ -9,6 +9,7 @@ namespace WarDle.ViewModels
         public Command ContinueCommand { get; }
         public Command StartNewCommand { get; }
         public Command SettingsCommand { get; }
+        public Command ResultsCommand { get; }
         public Command ExitCommand { get; }
 
         public MainPageViewModel()
@@ -16,6 +17,7 @@ namespace WarDle.ViewModels
             ContinueCommand = new Command(ContinueGame);
             StartNewCommand = new Command(StartNewGame);
             SettingsCommand = new Command(OpenSettings);
+            ResultsCommand = new Command(OpenResults);
             ExitCommand = new Command(ExitGame);
         }
 
@@ -23,18 +25,44 @@ namespace WarDle.ViewModels
 
         private async void ContinueGame()
         {
-            await Shell.Current.GoToAsync("///GamePage");
+
+            var gameStateFilePath = Path.Combine(FileSystem.AppDataDirectory, "gamestate.json");
+
+            // Check if the saved game file exists
+            if (!File.Exists(gameStateFilePath))
+            {
+                await App.Current.MainPage.DisplayAlert("Error", "No saved game found.", "OK");
+                return;
+            }
+
+            await Shell.Current.GoToAsync("GamePage");
+
+            // Load the game state after navigating to the GamePage
+            var currentPage = Shell.Current.CurrentPage;
+            if (currentPage is GamePage gamePage)
+            {
+                await gamePage.LoadGameStateAsync();
+            }
         }
 
         private async void StartNewGame()
         {
-            await Shell.Current.GoToAsync("///GamePage");
-
+            string playerName = await App.Current.MainPage.DisplayPromptAsync("Enter Name", "Please enter your name:");
+            if (!string.IsNullOrEmpty(playerName))
+            {
+                GameViewModel.TempPlayerName = playerName;               
+                await Shell.Current.GoToAsync("GamePage");
+            }
         }
 
         private async void OpenSettings()
         {
-            await App.Current.MainPage.DisplayAlert("Settings", "Settings page coming soon!", "OK");
+            await Shell.Current.GoToAsync("SettingsPage");
+        }
+
+        private async void OpenResults()
+        {
+            await Shell.Current.GoToAsync("ResultsPage");
         }
 
         private void ExitGame()

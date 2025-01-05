@@ -8,7 +8,7 @@
              x:Class="WarDle.GamePage"
              Title="Game"
              Shell.NavBarIsVisible="False"
-             BackgroundColor="#F0F0F0">
+             BackgroundColor="{AppThemeBinding Light=White, Dark=Black }">
 
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -17,16 +17,57 @@
     </ContentPage.Resources>
 
 
-    <Grid  RowDefinitions="Auto, Auto, Auto" ColumnDefinitions="*">
-        <!-- Title -->
-        <Label Text="WarDle"
-               FontSize="36"
-               HorizontalOptions="Center"
-               VerticalOptions="Center"
-               FontAttributes="Bold"
-               TextColor="#4CAF50"
-               Grid.Row="0" />
+    <Grid  RowDefinitions="Auto, Auto, Auto" ColumnDefinitions="*" RowSpacing="10">
 
+        <Grid  Grid.Row="0" ColumnSpacing="1" Padding="7" ColumnDefinitions="*,*,*" RowDefinitions="*" >
+            
+            <Label HorizontalOptions="Start"
+                   VerticalOptions="Center"                   
+                   Grid.Column="0" 
+                   LineBreakMode="WordWrap">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="W" FontSize="36" TextColor="green" FontAttributes="Bold"/>
+                        <Span Text="a" FontSize="36" TextColor="Orange" FontAttributes="Bold"/>
+                        <Span Text="r" FontSize="36" TextColor="Red" FontAttributes="Bold"/>
+                        <Span Text="D" FontSize="36" TextColor="Green" FontAttributes="Bold"/>
+                        <Span Text="l" FontSize="36" TextColor="Orange" FontAttributes="Bold"/>
+                        <Span Text="e" FontSize="36" TextColor="Red" FontAttributes="Bold"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <!-- Score Label And Player Name -->
+            <VerticalStackLayout Grid.Column="1" HorizontalOptions="Center" VerticalOptions="Center">
+                
+                <Label Text="{Binding PlayerName}"
+                        FontSize="12"                                             
+                        FontAttributes="Bold"
+                        TextColor="Orange"  
+                       HorizontalOptions="Center" />
+                <Label Text="{Binding Score, StringFormat='Score: {0}'}"
+                        FontSize="12"                                             
+                        FontAttributes="Bold"
+                        TextColor="Orange"  
+                       HorizontalOptions="Center" />
+                
+            </VerticalStackLayout>
+
+            <!-- New Game Button -->
+            <Button Text="New Game"
+                FontSize="10"
+                WidthRequest="90"
+                HeightRequest="40"
+                VerticalOptions="Center"
+                BackgroundColor="green"
+                TextColor="White"
+                CornerRadius="10"
+                HorizontalOptions="End"
+                Command="{Binding NewGameCommand}"
+                Grid.Column="2"/>
+
+
+
+        </Grid>
         <!-- Word Grid -->
         <Grid x:Name="EntryGrid" Grid.Row="1" Padding="10" HorizontalOptions="Center"
               RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="Auto,Auto,Auto,Auto,Auto"
@@ -169,7 +210,7 @@
         <!-- Submit Button -->
         <Button Text="Submit"
                 FontSize="18"
-                BackgroundColor="#4CAF50"
+                BackgroundColor="green"
                 TextColor="White"
                 CornerRadius="10"
                 HeightRequest="50"

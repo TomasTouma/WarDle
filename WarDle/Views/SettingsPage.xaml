@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WarDle.SettingsPage"
+             Title="Settings"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="{AppThemeBinding Light=White, Dark=Black }">
+
+    <Grid Padding="10" RowSpacing="10" ColumnSpacing="10" RowDefinitions="Auto, Auto ,Auto" ColumnDefinitions="*, *" >
+        <!-- Define rows and columns -->
+
+        <Label HorizontalOptions="StartAndExpand"
+       VerticalOptions="Center"                   
+       Grid.Column="0" 
+       LineBreakMode="WordWrap">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="S" FontSize="36" TextColor="green" />
+                    <Span Text="e" FontSize="36" TextColor="Orange" />
+                    <Span Text="t" FontSize="36" TextColor="Red" />
+                    <Span Text="t" FontSize="36" TextColor="Green" />
+                    <Span Text="i" FontSize="36" TextColor="Orange" />
+                    <Span Text="n" FontSize="36" TextColor="Red" />
+                    <Span Text="g" FontSize="36" TextColor="Green" />
+                    <Span Text="s" FontSize="36" TextColor="Orange" />
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+        <!-- Label and switch in the first row -->
+        <Label Grid.Row="1" Grid.Column="0" 
+               Text="Dark Mode" 
+               FontSize="20"
+               VerticalOptions="Center" 
+               HorizontalOptions="Start"
+               TextColor="Green"
+               Padding="5"/>
+
+        <Switch Grid.Row="1" Grid.Column="1" x:Name="themeSwitch"
+                IsToggled="{Binding IsDarkMode, Mode=TwoWay}" 
+                VerticalOptions="Center"
+                HorizontalOptions="End"
+                OnColor="Orange"
+                ThumbColor="Red"/>
+
+        
+
+        <!-- Button for Rules And Scoring in the third row -->
+        <Button Grid.Row="2" Grid.ColumnSpan="2"
+                Text="Rules And Scoring" 
+                Command="{Binding ShowRulesCommand}"
+                HorizontalOptions="StartAndExpand" 
+                VerticalOptions="Center"
+                TextColor="Orange"
+                FontSize="20"
+                Padding="5"
+                BackgroundColor="{AppThemeBinding Light=white, Dark=Black }"/>
+    </Grid>
+
+</ContentPage>

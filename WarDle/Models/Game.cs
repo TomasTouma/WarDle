@@ -15,7 +15,7 @@ namespace WarDle.Models
         {
             Letters = new ObservableCollection<char> { '\0', '\0', '\0', '\0', '\0' };
             EntriesReadOnly = new ObservableCollection<bool> { true, true, true, true, true };
-            EntryBackgroundColors = new ObservableCollection<string> { "White", "White", "White", "White", "White" };
+            EntryBackgroundColors = new ObservableCollection<string> { "Gray", "Gray", "Gray", "Gray", "Gray" };
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

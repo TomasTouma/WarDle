@@ -4,55 +4,53 @@
              x:Class="WarDle.MainPage"
              Title="MainPage"
              Shell.NavBarIsVisible="False"
-             BackgroundColor="#F0F0F0">
+             BackgroundColor="{AppThemeBinding Light=White, Dark=Black }">
 
 
     <VerticalStackLayout Spacing="30"  HorizontalOptions="Center" VerticalOptions="Start">
 
 
-        <Label Text="WarDle" 
-           FontSize="46" 
-           HorizontalOptions="Center"               
-           TextColor="#4CAF50"
-           FontAttributes="Bold"
-           Padding="100"/>
+        <Label HorizontalOptions="Center"  
+               LineBreakMode="WordWrap"
+               Padding="50" >
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="W" FontSize="46" TextColor="green" FontAttributes="Bold"/>
+                            <Span Text="a" FontSize="46" TextColor="Orange" FontAttributes="Bold"/>
+                            <Span Text="r" FontSize="46" TextColor="Red" FontAttributes="Bold"/>
+                            <Span Text="D" FontSize="46" TextColor="Green" FontAttributes="Bold"/>
+                            <Span Text="l" FontSize="46" TextColor="Orange" FontAttributes="Bold"/>
+                            <Span Text="e" FontSize="46" TextColor="Red" FontAttributes="Bold"/>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
 
 
         <Button Text="Continue" 
-            FontSize="18"
-            BackgroundColor="#4CAF50" 
-            TextColor="White"
-            CornerRadius="10"
-            HeightRequest="50"
-            WidthRequest="200"
+            BackgroundColor="Green"
+            Style="{StaticResource MainMenuButtonsStyle}"
             Command="{Binding ContinueCommand}" />
 
         <Button Text="Start New" 
-            FontSize="18"
-            BackgroundColor="#2196F3" 
-            TextColor="White"
-            CornerRadius="10"
-            HeightRequest="50"
-            WidthRequest="200"
+            BackgroundColor="Orange"
+            Style="{StaticResource MainMenuButtonsStyle}"
             Command="{Binding StartNewCommand}" />
 
         <Button Text="Settings" 
-            FontSize="18"
-            BackgroundColor="#FFC107" 
-            TextColor="White"
-            CornerRadius="10"
-            HeightRequest="50"
-            WidthRequest="200"
+            BackgroundColor="Green"
+            Style="{StaticResource MainMenuButtonsStyle}"
             Command="{Binding SettingsCommand}" />
+        
+        <Button Text="Results"
+            BackgroundColor="Orange" 
+            Style="{StaticResource MainMenuButtonsStyle}"
+            Command="{Binding ResultsCommand}"/>
 
         <Button Text="Exit" 
-            FontSize="18"
-            BackgroundColor="#F44336" 
-            TextColor="White"
-            CornerRadius="10"
-            HeightRequest="50"
-            WidthRequest="200"
+            BackgroundColor="Red" 
+            Style="{StaticResource MainMenuButtonsStyle}"
             Command="{Binding ExitCommand}" />
+        
     </VerticalStackLayout>
 
 </ContentPage>

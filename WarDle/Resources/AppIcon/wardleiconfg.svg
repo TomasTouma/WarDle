@@ -1,0 +1,19 @@
+<svg width="40" height="60" viewBox="-25 200 500 50"  xmlns="http://www.w3.org/2000/svg"  >
+
+	<g id="SVGRepo_bgCarrier" stroke-width="0"/>
+
+	<g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"/>
+
+	<!-- W -->
+	<text x="20" y="250" font-size="130" fill="green" font-family="Arial, sans-serif">W</text>
+	<!-- a -->
+	<text x="135" y="250" font-size="130" fill="orange" font-family="Arial, sans-serif">a</text>
+	<!-- r -->
+	<text x="200" y="250" font-size="130" fill="red" font-family="Arial, sans-serif">r</text>
+	<!-- D -->
+	<text x="250" y="250" font-size="130" fill="green" font-family="Arial, sans-serif">D</text>
+	<!-- l -->
+	<text x="340" y="250" font-size="130" fill="orange" font-family="Arial, sans-serif">l</text>
+	<!-- e -->
+	<text x="370" y="250" font-size="130" fill="red" font-family="Arial, sans-serif">e</text>
+</svg>

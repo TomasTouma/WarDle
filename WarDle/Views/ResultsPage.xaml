@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WarDle.ResultsPage"
+             Title="Results"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="{AppThemeBinding Light=White, Dark=Black }">
+
+    <VerticalStackLayout>
+
+        <Label HorizontalOptions="Start"
+       VerticalOptions="Center"   
+               Padding="10"
+       LineBreakMode="WordWrap">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="R" FontSize="36" TextColor="green" />
+                    <Span Text="e" FontSize="36" TextColor="Orange" />
+                    <Span Text="s" FontSize="36" TextColor="Red" />
+                    <Span Text="u" FontSize="36" TextColor="Green" />
+                    <Span Text="l" FontSize="36" TextColor="Orange" />
+                    <Span Text="t" FontSize="36" TextColor="Red" />
+                    <Span Text="s" FontSize="36" TextColor="Green" />
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+
+        <StackLayout Orientation="Horizontal" Padding="10" Spacing="30">
+            <Label Text="Name" FontSize="20" FontAttributes="Bold" TextColor="Green"/>
+            <Label Text="Score" FontSize="20" FontAttributes="Bold" TextColor="Orange"/>
+            <Label Text="Words Guessed" FontSize="20" FontAttributes="Bold" TextColor="Red"/>
+        </StackLayout>
+
+            <CollectionView ItemsSource="{Binding Results}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Horizontal" Padding="10" Spacing="50">
+                            <Label Text="{Binding PlayerName}" FontSize="20"  TextColor="Green"/>
+                            <Label Text="{Binding Score}" FontSize="20"  TextColor="Orange"/>
+                            <Label Text="{Binding WordsGuessed}" FontSize="20"  TextColor="Red"/>
+                        </StackLayout>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            </VerticalStackLayout>    
+    
+</ContentPage>
