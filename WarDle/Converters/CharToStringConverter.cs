@@ -4,8 +4,10 @@ using System.Globalization;
 
 namespace WarDle.Converters
 {
+    // This class converts a character to a string and vice versa
     public class CharToStringConverter : IValueConverter
     {
+        // This method converts a char to a string
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             // Convert char to string
@@ -17,6 +19,7 @@ namespace WarDle.Converters
             return string.Empty;
         }
 
+        // This method converts a string back to a char
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             if (value is string str && !string.IsNullOrEmpty(str))

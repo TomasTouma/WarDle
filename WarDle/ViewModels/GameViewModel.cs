@@ -119,6 +119,7 @@ namespace WarDle.ViewModels
 
         //Methods
 
+        // This method is called when the text in an entry changes
         public void OnEntryTextChanged(int rowIndex, int colIndex, string newText)
         {
            
@@ -134,8 +135,10 @@ namespace WarDle.ViewModels
             }
         }
 
+        // Event to focus on the next entry
         public event Action<int, int> FocusNextEntry = delegate { };
 
+        // This method initializes the words by downloading and loading them
         public async Task InitializeWordsAsync()
         {
             try
@@ -147,8 +150,8 @@ namespace WarDle.ViewModels
 
                 await LoadWordsFromFileAsync();
                 SelectRandomWord();
-                
-                //DEBUG ONLY-----------------------------
+
+                //DEBUG ONLY----Print the random word to the debug output
                 System.Diagnostics.Debug.WriteLine("Random Word: "+RandomWord);
                 //---------------------------------------
 
@@ -159,6 +162,7 @@ namespace WarDle.ViewModels
             }
         }
 
+        // This method downloads the words file from the specified URL
         private async Task DownloadWordsAsync()
         {
             try
@@ -174,18 +178,19 @@ namespace WarDle.ViewModels
             }
         }
 
-        
+        // This method returns the local file path for the words file
         private string GetLocalFilePath()
         {
             return Path.Combine(FileSystem.AppDataDirectory, LocalFileName);
         }
 
-        
+        // This method returns the local file path for the game state file
         private string GetGameStateFilePath()
         {
             return Path.Combine(FileSystem.AppDataDirectory, GameStateFileName);
         }
 
+        // This method loads the words from the local file
         private async Task LoadWordsFromFileAsync()
         {
             try
@@ -201,8 +206,10 @@ namespace WarDle.ViewModels
             }
         }
 
+        // Select a random word from the list and convert it to uppercase
         private void SelectRandomWord()
         {
+            // Ensure the words list is not empty
             if (words == null || !words.Any())
             {
                 throw new Exception("Word list is empty. Cannot select a random word.");
@@ -210,6 +217,7 @@ namespace WarDle.ViewModels
             RandomWord = words[new Random().Next(words.Count)].ToUpper();
         }
 
+        // Convert the random word to a character array
         public void SplitRandomWord()
         {
             if (!string.IsNullOrEmpty(RandomWord))
@@ -220,11 +228,13 @@ namespace WarDle.ViewModels
 
         public async void CheckEnteredWord()
         {
+            // Ensure the current row index is within the range of available rows
             if (currentRowIndex < Rows.Count)
             {
                 var row = Rows[currentRowIndex];
                 string userWord = new string(row.Letters.ToArray());
 
+                // Check if the entered word has 5 characters and no null characters
                 if (userWord.Length < 5 || userWord.Contains('\0'))
                 {
                     await Shell.Current.DisplayAlert("Error", "Please enter 5 letters in the current row.", "OK");
@@ -266,6 +276,7 @@ namespace WarDle.ViewModels
                 // Notify the UI to update the background colors for the current row
                 row.OnPropertyChanged(nameof(row.EntryBackgroundColors));
 
+                // If the user guessed the correct word
                 if (isCorrectWord)
                 {
                     await Shell.Current.DisplayAlert("Well done!", "You've guessed the word correctly!", "OK");
@@ -303,6 +314,7 @@ namespace WarDle.ViewModels
 
         public async void StartNewGame(bool carryOverScore)
         {
+            // Reset the score and words guessed if not carrying over
             if (!carryOverScore)
             {
                 Score = 0;
@@ -330,6 +342,7 @@ namespace WarDle.ViewModels
 
         public async void NewGame()
         {
+            // Confirm if the user wants to start a new game
             bool answer = await Shell.Current.DisplayAlert("Start New Game?", "Would you like to start new game?", "Yes", "Cancel");
 
             if (answer == true)
@@ -346,6 +359,7 @@ namespace WarDle.ViewModels
             else { }
         }
 
+        // This method saves the player's result 
         private async Task SaveResultAsync()
         {
             var result = new PlayerResult
@@ -357,6 +371,7 @@ namespace WarDle.ViewModels
             await resultsViewModel.AddResultAsync(result);
         }
 
+        // This method saves the current game state
         public async Task SaveGameStateAsync()
         {
             var gameState = new GameState
@@ -378,6 +393,7 @@ namespace WarDle.ViewModels
             await File.WriteAllTextAsync(filePath, json);
         }
 
+        // This method loads the saved game state
         public async Task LoadGameStateAsync()
         {
             var filePath = GetGameStateFilePath();

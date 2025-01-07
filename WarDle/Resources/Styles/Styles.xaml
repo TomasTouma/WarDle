@@ -7,12 +7,22 @@
     <Style TargetType="Entry" x:Key="GridEntryStyle">
         <Setter Property="MaxLength" Value="1" />
         <Setter Property="WidthRequest" Value="45" />
-        <Setter Property="HeightRequest" Value="30" />
+        <Setter Property="HeightRequest" Value="50" />
         <Setter Property="HorizontalTextAlignment" Value="Center" />
         <Setter Property="FontSize" Value="20" />
         <Setter Property="BackgroundColor" Value="Gray" />
         <Setter Property="TextColor" Value="Black" />
         <Setter Property="Keyboard" Value="Text" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        
+    </Style>
+
+    <Style TargetType="Button" x:Key="MainMenuButtonsStyle">
+        <Setter Property="FontSize" Value="19" />
+        <Setter Property="CornerRadius" Value="10" />
+        <Setter Property="HeightRequest" Value="50" />
+        <Setter Property="WidthRequest" Value="200" />
+        <Setter Property="TextColor" Value="White" />
         <Setter Property="FontAttributes" Value="Bold" />
     </Style>
     
