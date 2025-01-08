@@ -9,6 +9,7 @@
     <Grid Padding="10" RowSpacing="10" ColumnSpacing="10" RowDefinitions="Auto, Auto ,Auto" ColumnDefinitions="*, *" >
         <!-- Define rows and columns -->
 
+        <!-- Title Label -->
         <Label HorizontalOptions="StartAndExpand"
        VerticalOptions="Center"                   
        Grid.Column="0" 
@@ -27,7 +28,7 @@
             </Label.FormattedText>
         </Label>
 
-        <!-- Label and switch in the first row -->
+        <!-- Label and switch to change between light and dark modes -->
         <Label Grid.Row="1" Grid.Column="0" 
                Text="Dark Mode" 
                FontSize="20"
@@ -45,7 +46,7 @@
 
         
 
-        <!-- Button for Rules And Scoring in the third row -->
+        <!-- Button for Rules And Scoring -->
         <Button Grid.Row="2" Grid.ColumnSpan="2"
                 Text="Rules And Scoring" 
                 Command="{Binding ShowRulesCommand}"

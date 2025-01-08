@@ -12,8 +12,10 @@ namespace WarDle.ViewModels
         private const string ResultsFileName = "results.json";
         private readonly string resultsFilePath;
 
+        //Collection to hold the results
         public ObservableCollection<PlayerResult> Results { get; }
 
+        //Constructor
         public ResultsViewModel()
         {
             resultsFilePath = Path.Combine(FileSystem.AppDataDirectory, ResultsFileName);
@@ -23,6 +25,7 @@ namespace WarDle.ViewModels
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+        //Method to load the results 
         private async void LoadResultsAsync()
         {
             var results = await LoadResultsFromFileAsync();
@@ -32,6 +35,7 @@ namespace WarDle.ViewModels
             }
         }
 
+        //Method to load the results from the file
         private async Task<List<PlayerResult>> LoadResultsFromFileAsync()
         {
             if (!File.Exists(resultsFilePath))
@@ -41,12 +45,14 @@ namespace WarDle.ViewModels
             return JsonSerializer.Deserialize<List<PlayerResult>>(json);
         }
 
+        //Method to save the results to the file
         private async Task SaveResultsToFileAsync(List<PlayerResult> results)
         {
             var json = JsonSerializer.Serialize(results);
             await File.WriteAllTextAsync(resultsFilePath, json);
         }
 
+        //Method to add a result and save it to the file
         public async Task AddResultAsync(PlayerResult result)
         {
             var results = await LoadResultsFromFileAsync();

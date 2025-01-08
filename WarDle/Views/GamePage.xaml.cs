@@ -8,6 +8,7 @@ public partial class GamePage : ContentPage
 {
     private GameViewModel gameViewModel;
 
+    // Constructor
     public GamePage()
 	{
         InitializeComponent();
@@ -16,21 +17,26 @@ public partial class GamePage : ContentPage
         gameViewModel.FocusNextEntry += FocusEntry;
     }
 
+    // Initialize the words
     protected override async void OnAppearing()
     {
         base.OnAppearing();
         await gameViewModel.InitializeWordsAsync();
     }
 
+    // Load the game state
     public async Task LoadGameStateAsync()
     {
         await gameViewModel.LoadGameStateAsync();
     }
 
+    // Save the game state
     public async Task SaveGameStateAsync()
     {
         await gameViewModel.SaveGameStateAsync();
     }
+
+    // Focus the entry at the specified row and column index
     private void FocusEntry(int rowIndex, int colIndex)
     {
         // Find the entry by index and set focus
@@ -42,7 +48,6 @@ public partial class GamePage : ContentPage
     // Find the entry by row and column index
     private Entry FindEntryByIndex(int rowIndex, int colIndex)
     {
-        // Use the instance of the Grid (EntryGrid) to get row and column information
         return (Entry)EntryGrid.Children.FirstOrDefault(e => EntryGrid.GetRow(e) == rowIndex && EntryGrid.GetColumn(e) == colIndex);
     }
 
@@ -52,7 +57,6 @@ public partial class GamePage : ContentPage
         if (entry == null)
             return;
 
-        // Use the instance of the Grid (EntryGrid) to get row and column information
         var rowIndex = EntryGrid.GetRow(entry);
         var colIndex = EntryGrid.GetColumn(entry);
         gameViewModel.OnEntryTextChanged(rowIndex, colIndex, e.NewTextValue);

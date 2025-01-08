@@ -9,6 +9,8 @@ namespace WarDle.ViewModels
     {
         private bool isDarkMode;
 
+
+        //Property to store the current theme preference
         public bool IsDarkMode
         {
             get => isDarkMode;
@@ -26,29 +28,34 @@ namespace WarDle.ViewModels
 
         public Command ShowRulesCommand { get; }
 
+        //Constructor
         public SettingsViewModel()
         {
-            // Initialize the command
+            
             ShowRulesCommand = new Command(ShowRules);
-            // Load the theme preference when the ViewModel is created
+            
             LoadThemePreference();
         }
 
+        //Method to update the theme based on the current theme preference
         private void UpdateTheme()
         {
             Application.Current.UserAppTheme = isDarkMode ? AppTheme.Dark : AppTheme.Light;
         }
 
+        //Method to save the theme preference
         private void SaveThemePreference()
         {
             Preferences.Set("IsDarkMode", isDarkMode);
         }
 
+        //Method to load the theme preference
         private void LoadThemePreference()
         {
             IsDarkMode = Preferences.Get("IsDarkMode", false);
         }
 
+        //Method to show the rules of the game
         private async void ShowRules()
         {
             string message = "Rules and Scoring:\n\n" +

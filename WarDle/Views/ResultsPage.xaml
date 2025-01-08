@@ -7,7 +7,8 @@
              BackgroundColor="{AppThemeBinding Light=White, Dark=Black }">
 
     <VerticalStackLayout>
-
+    
+        <!-- Title Label -->
         <Label HorizontalOptions="Start"
        VerticalOptions="Center"   
                Padding="10"
@@ -25,12 +26,13 @@
             </Label.FormattedText>
         </Label>
 
+        
         <StackLayout Orientation="Horizontal" Padding="10" Spacing="30">
             <Label Text="Name" FontSize="20" FontAttributes="Bold" TextColor="Green"/>
             <Label Text="Score" FontSize="20" FontAttributes="Bold" TextColor="Orange"/>
             <Label Text="Words Guessed" FontSize="20" FontAttributes="Bold" TextColor="Red"/>
         </StackLayout>
-
+            <!-- Collecton view to show the results -->
             <CollectionView ItemsSource="{Binding Results}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>

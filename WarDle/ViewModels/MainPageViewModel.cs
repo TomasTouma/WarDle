@@ -5,13 +5,14 @@ namespace WarDle.ViewModels
 {
     public class MainPageViewModel : INotifyPropertyChanged
     {
-
+        //Commands
         public Command ContinueCommand { get; }
         public Command StartNewCommand { get; }
         public Command SettingsCommand { get; }
         public Command ResultsCommand { get; }
         public Command ExitCommand { get; }
 
+        //constructor
         public MainPageViewModel()
         {
             ContinueCommand = new Command(ContinueGame);
@@ -23,6 +24,7 @@ namespace WarDle.ViewModels
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
+        // Method to continue the previously saved game
         private async void ContinueGame()
         {
 
@@ -45,6 +47,7 @@ namespace WarDle.ViewModels
             }
         }
 
+        //Methos to start a new game
         private async void StartNewGame()
         {
             string playerName = await App.Current.MainPage.DisplayPromptAsync("Enter Name", "Please enter your name:");
@@ -55,16 +58,19 @@ namespace WarDle.ViewModels
             }
         }
 
+        //Open the settings page
         private async void OpenSettings()
         {
             await Shell.Current.GoToAsync("SettingsPage");
         }
 
+        //Open the results page
         private async void OpenResults()
         {
             await Shell.Current.GoToAsync("ResultsPage");
         }
 
+        //Exit the game
         private void ExitGame()
         {
             System.Diagnostics.Process.GetCurrentProcess().Kill();

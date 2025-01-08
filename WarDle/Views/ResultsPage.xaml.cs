@@ -4,7 +4,8 @@ namespace WarDle;
 
 public partial class ResultsPage : ContentPage
 {
-	public ResultsPage()
+    // Constructor
+    public ResultsPage()
 	{
 		InitializeComponent();
         BindingContext = new ResultsViewModel();

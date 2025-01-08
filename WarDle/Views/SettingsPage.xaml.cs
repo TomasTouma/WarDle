@@ -4,7 +4,8 @@ namespace WarDle;
 
 public partial class SettingsPage : ContentPage
 {
-	public SettingsPage()
+    // Constructor
+    public SettingsPage()
 	{
 		InitializeComponent();
         BindingContext = new SettingsViewModel();

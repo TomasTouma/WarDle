@@ -9,7 +9,7 @@
 
     <VerticalStackLayout Spacing="30"  HorizontalOptions="Center" VerticalOptions="Start">
 
-
+        <!-- Title Label -->
         <Label HorizontalOptions="Center"  
                LineBreakMode="WordWrap"
                Padding="50" >
@@ -25,27 +25,31 @@
             </Label.FormattedText>
         </Label>
 
-
+        <!-- Continue Saved game button -->
         <Button Text="Continue" 
             BackgroundColor="Green"
             Style="{StaticResource MainMenuButtonsStyle}"
             Command="{Binding ContinueCommand}" />
-
+        
+        <!-- Start New game button -->
         <Button Text="Start New" 
             BackgroundColor="Orange"
             Style="{StaticResource MainMenuButtonsStyle}"
             Command="{Binding StartNewCommand}" />
 
+        <!-- Settings button -->
         <Button Text="Settings" 
             BackgroundColor="Green"
             Style="{StaticResource MainMenuButtonsStyle}"
             Command="{Binding SettingsCommand}" />
         
+        <!-- Results button -->
         <Button Text="Results"
             BackgroundColor="Orange" 
             Style="{StaticResource MainMenuButtonsStyle}"
             Command="{Binding ResultsCommand}"/>
-
+           
+        <!-- Exit button -->
         <Button Text="Exit" 
             BackgroundColor="Red" 
             Style="{StaticResource MainMenuButtonsStyle}"

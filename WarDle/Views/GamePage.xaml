@@ -20,7 +20,7 @@
     <Grid  RowDefinitions="Auto, Auto, Auto" ColumnDefinitions="*" RowSpacing="10">
 
         <Grid  Grid.Row="0" ColumnSpacing="1" Padding="7" ColumnDefinitions="*,*,*" RowDefinitions="*" >
-            
+            <!-- Title Label -->
             <Label HorizontalOptions="Start"
                    VerticalOptions="Center"                   
                    Grid.Column="0" 
